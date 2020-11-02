@@ -79,7 +79,6 @@ namespace discord {
          */
         std::vector<Snowflake> mentionedRoles; // mention_roles
 
-        // TODO: continue this
         /**
          * Array of mentioned channels.
          */
@@ -116,8 +115,6 @@ namespace discord {
          * Type of the message.
          */
         MessageType type; // type
-
-        // TODO: Message Activity.
 
         /**
          * The message activity.

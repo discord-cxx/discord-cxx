@@ -25,11 +25,10 @@ namespace discord {
          */
         bool isHoisted; // hoist
 
-        // TODO: check if it fits inside uint8_t
         /**
          * Position of the role in the server.
          */
-        uint16_t position; // position
+        uint8_t position; // position
 
         /**
          * Bit set of role's permissions.

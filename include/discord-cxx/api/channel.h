@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "snowflake.h"
+#include "timestamp.h"
 #include "permission_overwrite.h"
 #include "user_info.h"
 
@@ -94,10 +95,9 @@ namespace discord {
          */
         std::optional<Snowflake> parentId; // parent_id
 
-        // TODO: work on lastPinnedAt type
         /**
          * Time at which the last pinned message was pinned.
          */
-        std::optional<std::string> lastPinnedAt; // last-pin-timestamp
+        std::optional<Timestamp> lastPinnedAt; // last-pin-timestamp
     };
 }

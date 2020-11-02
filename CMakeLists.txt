@@ -3,8 +3,31 @@ project(discord-cxx)
 
 set(CMAKE_CXX_STANDARD 20)
 
-# Dependencies.
-find_package(cpprestsdk REQUIRED)
+find_package(cpprestsdk QUIET)
+
+# Download & build cpprestsdk if it's not installed on
+# the system, via CMake's FetchContent.
+if(NOT cpprestsdk_FOUND)
+    include(FetchContent)
+
+    FetchContent_Declare(
+        cpprestsdk
+
+        URL https://github.com/microsoft/cpprestsdk/archive/master.tar.gz
+    )
+
+    # Has C++ REST SDK been downloaded yet?
+    if(NOT cpprestsdk_POPULATED)
+        set(FETCHCONTENT_QUIET OFF)
+        FetchContent_Populate(cpprestsdk)
+
+        # Do not build tests for it.
+        set(cpprestsdk_BUILD_TESTS OFF)
+
+        # Build cpprestsdk.
+        add_subdirectory(${cpprestsdk_SOURCE_DIR} ${cpprestsdk_BINARY_DIR})
+    endif()
+endif()
 
 # Setup sources.
 file(

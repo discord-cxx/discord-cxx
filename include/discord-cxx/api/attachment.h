@@ -16,7 +16,6 @@ namespace discord {
          */
         std::string filename; // filename
 
-        // TODO: change uint size based on maximum file size in bytes.
         /**
          * The size of the attached file.
          */
